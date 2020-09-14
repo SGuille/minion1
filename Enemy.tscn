@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Enemy.gd" type="Script" id=1]
+[ext_resource path="res://assets/slice53x.png" type="Texture" id=2]
+
+[node name="Enemy" type="KinematicBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 0.00156403, -10.8618, 10.5558, 10.2466, -10.85, 10.8412 )
+__meta__ = {
+"_editor_description_": "	"
+}
+
+[node name="LiveTimer" type="Timer" parent="."]
+wait_time = 50.0
+[connection signal="timeout" from="LiveTimer" to="." method="_on_LiveTimer_timeout"]
