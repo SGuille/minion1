@@ -5,8 +5,8 @@ func _ready():
 
 func _hide():
 	$GameOver.visible = false
-	$NewGame.visible = false
+	$Menu.visible = false
 
 func _show():
 	$GameOver.visible = true
-	$NewGame.visible = true
+	$Menu.visible = true

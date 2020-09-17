@@ -4,6 +4,7 @@ signal die(body)
 signal hit
 export var speed = 50
 export var player_position : Vector2
+export(float) var friction = 0.9
 
 func _process(delta):
 	_follow_the_player()
@@ -15,7 +16,11 @@ func _follow_the_player():
 	var direction = player_position - position
 	var normalized_direction = direction.normalized()
 	var velocity = normalized_direction * speed
+	#velocity *= friction
+	#if velocity.length() < 1:
+	#	velocity = Vector2.ZERO
 	move_and_slide(velocity)
+	#move_and_slide(velocity, Vector2.ZERO, false, 4, PI/4, false)
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if (collision.collider.name == "Player"):

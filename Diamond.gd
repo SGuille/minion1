@@ -8,3 +8,4 @@ func _on_Diamond_body_entered(body):
 func _on_Main_game_over():
 	hide()
 	$CollisionPolygon2D.set_deferred("disabled", true)
+
